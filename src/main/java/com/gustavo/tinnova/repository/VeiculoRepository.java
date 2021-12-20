@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface VeiculoRepository  extends JpaRepository<Veiculo, Long> {
 
-//    public List<Veiculo> findAllByAttribute(String attribute);
-
+    public List<Veiculo> findAllByDescricao(String attribute);
+//    public List<IdOnly> findAllByName(String name);
 }

@@ -12,7 +12,8 @@ public class VeiculoT {
     private int ano;
     private String descricao;
     private boolean vendido;
-    public  VeiculoT(String veiculo, String marca, int ano, String descricao, boolean vendido){
+    public  VeiculoT(Long id ,String veiculo, String marca, int ano, String descricao, boolean vendido){
+        this.id = id;
         this.veiculo = veiculo;
         this.marca = marca;
         this.ano = ano;

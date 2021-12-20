@@ -7,8 +7,10 @@ import com.gustavo.tinnova.utils.Mapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 public class VeiculosController {
@@ -36,9 +38,15 @@ public class VeiculosController {
 
 
     @GetMapping("/veiculos/find")  //TODO: Finalizar depois
-    public ResponseEntity<String> getEncontrarVeiculo(@RequestParam("q") String atributo) {
-//        List<VeiculoT>listaDeVeiculos = (List<VeiculoT>) repository.findAllByAttribute(atributo).stream().map(veiculo -> mapper.mapVeiculoToVeiculoT(veiculo));
-        return ResponseEntity.ok("");
+    public ResponseEntity<List<VeiculoT>> getEncontrarVeiculo(@RequestParam("q") String atributo) {
+        List<VeiculoT> listaDeVeiculos = new ArrayList<>();
+        switch (atributo){
+            case "descricao" :
+                listaDeVeiculos =  repository.findAllByDescricao(atributo).stream().map(veiculo -> mapper.mapVeiculoToVeiculoT(veiculo)).collect(Collectors.toList());
+                break;
+        }
+
+        return ResponseEntity.ok(listaDeVeiculos);
     }
 
     @GetMapping("/veiculos/{id}")
@@ -54,6 +62,8 @@ public class VeiculosController {
 
     @PutMapping("/veiculos/{id}")
     public ResponseEntity<Optional<Veiculo>> putAtualizarVeiculo(@PathVariable("id") Long veiculoId, @RequestBody VeiculoT veiculoT) {
+        System.out.println("Recebi");
+        System.out.println(veiculoT.getVeiculo());
         return ResponseEntity.ok(repository.findById(veiculoId)
                 .map(veiculo -> {
                     veiculo.setVeiculo(veiculoT.getVeiculo());
@@ -67,6 +77,8 @@ public class VeiculosController {
 
     @PatchMapping("/veiculos/{id}")
     public ResponseEntity<Optional<Veiculo>> patchAtualizarVeiculo(@PathVariable("id") Long veiculoId, @RequestBody VeiculoT veiculoT) {
+        System.out.println("Recebi");
+        System.out.println(veiculoT.getAno());
         return ResponseEntity.ok(repository.findById(veiculoId)
                 .map(veiculo -> {
                     if(veiculoT.getVeiculo() != null) veiculo.setVeiculo(veiculoT.getVeiculo());
