@@ -56,7 +56,7 @@ class TinnovaApplicationTests {
 	}
 
 	@Test
-	@Order(3)
+	@Order(4)
 	void whenGetVeiculosIdReturn200AndList() throws Exception {
 		mockMvc.perform(get("/veiculos/1")
 //				.content(new Veiculo(Long.getLong("0"),"teste","AGCO",2019,"muito bom",true))
@@ -65,7 +65,8 @@ class TinnovaApplicationTests {
 	}
 
 	@Test
-	@Order(4)
+
+	@Order(3)
 	void whenPostVeiculosIdReturn200AndList() throws Exception {
 		mockMvc.perform(post("/veiculos")
 				.contentType("application/json")

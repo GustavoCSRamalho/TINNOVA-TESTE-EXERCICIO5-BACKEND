@@ -18,7 +18,7 @@ class LoadDatabase {
     CommandLineRunner initDatabase(VeiculoRepository repository) {
 
         return args -> {
-            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","AGCO",2019,"muito bom",true)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","AGCO",2019,"muito bom",true)));
 //            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Caterpillar",2020,"muito bom",false)));
 //            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","CNH New Holland,",2020,"muito bom",false)));
 //            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Chery",2015,"muito bom",true)));
