@@ -1,25 +1,49 @@
 package com.gustavo.tinnova.models;
 
-public class VeiculoT {
+import java.util.Date;
+
+public class VeiculoResposta {
 
     private Long id;
 
-    public VeiculoT(){}
+    public VeiculoResposta(){}
 
     private String veiculo;
 
     private String marca;
     private int ano;
     private String descricao;
-    private boolean vendido;
-    public  VeiculoT(Long id ,String veiculo, String marca, int ano, String descricao, boolean vendido){
+    private Boolean vendido;
+    private Date created ;
+    private Date updated ;
+    public VeiculoResposta(Long id , String veiculo, String marca, int ano, String descricao, Boolean vendido){
         this.id = id;
         this.veiculo = veiculo;
         this.marca = marca;
         this.ano = ano;
         this.descricao = descricao;
-        this.veiculo = veiculo;
+        this.vendido = vendido;
 
+    }
+
+    public Boolean getVendido() {
+        return vendido;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
     }
 
     public Long getId() {
@@ -62,11 +86,11 @@ public class VeiculoT {
         this.descricao = descricao;
     }
 
-    public boolean isVendido() {
+    public Boolean isVendido() {
         return vendido;
     }
 
-    public void setVendido(boolean vendido) {
+    public void setVendido(Boolean vendido) {
         this.vendido = vendido;
     }
 }

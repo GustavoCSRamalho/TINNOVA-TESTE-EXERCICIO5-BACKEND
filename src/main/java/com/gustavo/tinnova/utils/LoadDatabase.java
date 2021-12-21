@@ -18,9 +18,21 @@ class LoadDatabase {
     CommandLineRunner initDatabase(VeiculoRepository repository) {
 
         return args -> {
-            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Gol",2020,"muito bom",true)));
-            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Gol",2020,"muito bom",false)));
-//            log.info("Preloading " + repository.save(new Employee("Frodo Baggins", "thief")));
+            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","AGCO",2019,"muito bom",true)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Caterpillar",2020,"muito bom",false)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","CNH New Holland,",2020,"muito bom",false)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Chery",2015,"muito bom",true)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Ford",2015,"muito bom",true)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Chevrolet",2020,"muito bom",false)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Honda",2019,"muito bom",false)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Hyundai",2020,"muito bom",true)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Komatsu",2019,"muito bom",true)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Mercedes-Benz",2020,"muito bom",false)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Scania",2019,"muito bom",true)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Toyota",2019,"muito bom",true)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","Valtra",2015,"muito bom",false)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","VW",2015,"muito bom",false)));
+//            log.info("Preloading " + repository.save(new Veiculo(Long.getLong("0"),"teste","John Deere",2015,"muito bom",false)));
         };
     }
 }

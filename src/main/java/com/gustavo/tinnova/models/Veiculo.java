@@ -1,8 +1,9 @@
 package com.gustavo.tinnova.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -18,22 +19,48 @@ public class Veiculo {
     private String marca;
     private int ano;
     private String descricao;
-    private boolean vendido;
+    private boolean vendido = false;
+
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created")
+    private Date created ;
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "updated")
+    private Date updated ;
+
+
     public  Veiculo(Long id,String veiculo, String marca, int ano, String descricao, boolean vendido){
         this.id = id;
         this.veiculo = veiculo;
         this.marca = marca;
         this.ano = ano;
         this.descricao = descricao;
-        this.veiculo = veiculo;
+        this.vendido = vendido;
 
     }
 
-    @Override
-    public String toString() {
-        return "Veiculo{" + "id=" + this.id + ", veiculo='" + this.veiculo + '\'' + ", marca='" + this.marca + '\'' + '}';
+    public void setCreated(Date created) {
+        this.created = created;
     }
 
+    public void setUpdated(Date updated) {
+        this.updated = updated;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Veiculo{" + "id=" + this.id + ", vendido='" + this.vendido + '\'' + ", marca='" + this.marca + '\'' + '}';
+//    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public Date getUpdated() {
+        return updated;
+    }
 
     public Long getId() {
         return id;
